@@ -55,4 +55,4 @@ jobs:
           with:
             heroku_api_key: ${{secrets.HEROKU_API_KEY}}
             heroku_app_name: "corndel-module-8" #Must be unique in Heroku
-            heroku_email: "francesco.wang@kpng.co.uk"
+            heroku_email: "francesco.wang@kpmg.co.uk"
