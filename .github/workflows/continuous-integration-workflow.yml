@@ -40,7 +40,19 @@ jobs:
       
     - name: Build and push
       uses: docker/build-push-action@v3
-      if: ${{github.ref == 'refs/heads/dev'}}
+      if: ${{github.ref == 'refs/heads/main'}}
       with:
         push: true
         tags: francescowang/dotnettemplate:v1
+    
+  name: Deploy
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+          with:
+            heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+            heroku_app_name: "corndel-module-8" #Must be unique in Heroku
+            heroku_email: "francesco.wang@kpng.co.uk"
