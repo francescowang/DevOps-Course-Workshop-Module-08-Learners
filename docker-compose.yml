@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  module8:
+    container_name: app
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - "5001:5000"
