@@ -23,6 +23,7 @@ jobs:
       working-directory: ./DotnetTemplate.Web
 
     - name: Typescript test
+      id: test
       run: npm run test
       working-directory: ./DotnetTemplate.Web
 
@@ -34,7 +35,7 @@ jobs:
       
     - name: Build and push
       uses: docker/build-push-action@v3
+      needs: test
       with:
         push: true
         tags: francescowang/dotnettemplate:v1
-    
